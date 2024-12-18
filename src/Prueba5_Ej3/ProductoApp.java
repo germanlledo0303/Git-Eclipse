@@ -120,6 +120,7 @@ public class ProductoApp {
 				
 				System.out.println("Introduce un nuevo stock para ese producto: ");
 				producto[i].setStock(sc.nextInt());	
+				sc.nextLine();
 				
 				System.out.println("Introduce nuevo precio: ");
 				producto[i].setPrecio(sc.nextDouble());								
@@ -162,18 +163,14 @@ public class ProductoApp {
     }
 	
 	private static void mostrarValorTotal() {  
-		double valorTotalInvent = 0;
-		System.out.println("Total de productos en el inventario: " + contPro);  
-		System.out.println("Valor Total inventario: " + valorTotalInvent); 
-		
-		for (int i = 0; i < contPro; i++) {
+	    double valorTotalInvent = 0;
 
-			/*
-			producto[i].getStock += valorTotalInvent;
-			producto[i].getPrecio += valorTotalInvent;	
-			*/		 
-            	          
-		}           	
+	    for (int i = 0; i < contPro; i++) {
+	        valorTotalInvent += producto[i].getStock() * producto[i].getPrecio();
+	    }
+	    
+	    System.out.println("Total de productos en el inventario: " + contPro);  
+	    System.out.println("Valor Total inventario: " + valorTotalInvent + "€");
 	}
 	
 	private static void informeRoturaStock() {
